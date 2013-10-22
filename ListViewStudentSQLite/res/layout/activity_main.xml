@@ -1,0 +1,29 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#004000"
+        android:gravity="center"
+        android:text="Management Student"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btnInsertStudent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Insert Student" />
+
+    <Button
+        android:id="@+id/buttonShowStudentList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="List Student" />
+
+</LinearLayout>

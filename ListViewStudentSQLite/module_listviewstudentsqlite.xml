@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_listviewstudentsqlite" default="compile.module.listviewstudentsqlite">
+  <dirname property="module.listviewstudentsqlite.basedir" file="${ant.file.module_listviewstudentsqlite}"/>
+  
+  <property name="module.jdk.home.listviewstudentsqlite" value="${jdk.home.android_4.3_platform}"/>
+  <property name="module.jdk.bin.listviewstudentsqlite" value="${jdk.bin.android_4.3_platform}"/>
+  <property name="module.jdk.classpath.listviewstudentsqlite" value="jdk.classpath.android_4.3_platform"/>
+  
+  <property name="compiler.args.listviewstudentsqlite" value="${compiler.args}"/>
+  
+  <property name="listviewstudentsqlite.output.dir" value="${module.listviewstudentsqlite.basedir}/out/production/ListViewStudentSQLite"/>
+  <property name="listviewstudentsqlite.testoutput.dir" value="${module.listviewstudentsqlite.basedir}/out/test/ListViewStudentSQLite"/>
+  
+  <path id="listviewstudentsqlite.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="listviewstudentsqlite.module.production.classpath">
+    <path refid="${module.jdk.classpath.listviewstudentsqlite}"/>
+    <path refid="library.android-support-v4.classpath"/>
+  </path>
+  
+  <path id="listviewstudentsqlite.runtime.production.module.classpath">
+    <pathelement location="${listviewstudentsqlite.output.dir}"/>
+    <path refid="library.android-support-v4.classpath"/>
+  </path>
+  
+  <path id="listviewstudentsqlite.module.classpath">
+    <path refid="${module.jdk.classpath.listviewstudentsqlite}"/>
+    <pathelement location="${listviewstudentsqlite.output.dir}"/>
+    <path refid="library.android-support-v4.classpath"/>
+  </path>
+  
+  <path id="listviewstudentsqlite.runtime.module.classpath">
+    <pathelement location="${listviewstudentsqlite.testoutput.dir}"/>
+    <pathelement location="${listviewstudentsqlite.output.dir}"/>
+    <path refid="library.android-support-v4.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.listviewstudentsqlite">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.listviewstudentsqlite">
+    <patternset refid="excluded.from.module.listviewstudentsqlite"/>
+  </patternset>
+  
+  <path id="listviewstudentsqlite.module.sourcepath">
+    <dirset dir="${module.listviewstudentsqlite.basedir}">
+      <include name="gen"/>
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.listviewstudentsqlite" depends="compile.module.listviewstudentsqlite.production,compile.module.listviewstudentsqlite.tests" description="Compile module ListViewStudentSQLite"/>
+  
+  <target name="compile.module.listviewstudentsqlite.production" depends="register.custom.compilers" description="Compile module ListViewStudentSQLite; production classes">
+    <mkdir dir="${listviewstudentsqlite.output.dir}"/>
+    <javac2 destdir="${listviewstudentsqlite.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.listviewstudentsqlite}/javac">
+      <compilerarg line="${compiler.args.listviewstudentsqlite}"/>
+      <bootclasspath refid="listviewstudentsqlite.module.bootclasspath"/>
+      <classpath refid="listviewstudentsqlite.module.production.classpath"/>
+      <src refid="listviewstudentsqlite.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.listviewstudentsqlite"/>
+    </javac2>
+    
+    <copy todir="${listviewstudentsqlite.output.dir}">
+      <fileset dir="${module.listviewstudentsqlite.basedir}/gen">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+      <fileset dir="${module.listviewstudentsqlite.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.listviewstudentsqlite.tests" depends="register.custom.compilers,compile.module.listviewstudentsqlite.production" description="compile module ListViewStudentSQLite; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.listviewstudentsqlite" description="cleanup module">
+    <delete dir="${listviewstudentsqlite.output.dir}"/>
+    <delete dir="${listviewstudentsqlite.testoutput.dir}"/>
+  </target>
+</project>
