@@ -36,7 +36,7 @@ public class ShowListStudentActivity2 extends ListActivity{
 		SQLiteDatabase database=openOrCreateDatabase("mydata.db", SQLiteDatabase.CREATE_IF_NECESSARY, null);
 		if(database!=null)
 		{
-			Cursor cursor=database.query("tblAuthors", null, null, null, null, null, null);
+			Cursor cursor=database.query("tblStudents", null, null, null, null, null, null);
 			startManagingCursor(cursor);
 			InforDataStudent header=new InforDataStudent();
 			header.setField1(cursor.getColumnName(0));

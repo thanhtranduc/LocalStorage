@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">StartActivitiResult</string>
+    <string name="screenOne_tvName">Name</string>
+    <string name="screenOne_tvEmail">Email</string>
+    <string name="screenOne_btNext">Next Screen</string>
+    <string name="label">Demo</string>
+</resources>

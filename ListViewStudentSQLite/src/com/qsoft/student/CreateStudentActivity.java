@@ -24,7 +24,7 @@ public class CreateStudentActivity extends Activity {
         final Button btnInsert =(Button) findViewById(R.id.buttonInsert);
         final EditText txtName=(EditText) findViewById(R.id.editTextName);
 		final EditText txtAge=(EditText) findViewById(R.id.editTextAge);
-		 final  Intent intent= getIntent();
+		final  Intent intent= getIntent();
         btnInsert.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -34,8 +34,8 @@ public class CreateStudentActivity extends Activity {
 				Bundle bundle=new Bundle();
 				bundle.putString("studentName", txtName.getText().toString());
 				bundle.putString("studentAge", txtAge.getText().toString());
-				intent.putExtra("DATA_AUTHOR", bundle);
-				setResult(MainActivity.SEND_DATA_FROM_AUTHOR_ACTIVITY, intent);
+				intent.putExtra("DATA_STUDENT", bundle);
+				setResult(MainActivity.SEND_DATA_FROM_STUDENT_ACTIVITY, intent);
 				CreateStudentActivity.this.finish();
 			}
 		});

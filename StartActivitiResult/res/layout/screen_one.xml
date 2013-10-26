@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent">
+
+    <TextView
+            android:id="@+id/screen_one_tvName"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:text="@string/screenOne_tvName"
+        />
+    <EditText
+            android:id="@+id/screenOne_etName"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:inputType="text"
+        />
+    <TextView
+            android:id="@+id/screen_one_tvemail"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:text="@string/screenOne_tvEmail"
+            />
+    <EditText
+            android:id="@+id/screenOne_etEmail"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:inputType="text"
+            />
+    <Button
+            android:id="@+id/screen_one_btnext"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:text="@string/screenOne_btNext"
+            android:gravity="center_horizontal"
+        />
+</LinearLayout>

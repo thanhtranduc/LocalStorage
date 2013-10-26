@@ -52,10 +52,10 @@ public class ShowListStudentActivity extends Activity{
 		if(database!=null)
 		{
 
-			Cursor cursor=database.query("tblAuthors", null, null, null, null, null, null);
+			Cursor cursor=database.query("tblStudents", null, null, null, null, null, null);
 			startManagingCursor(cursor);
 			InforDataStudent header=new InforDataStudent();
-			header.setField1("StudentId");
+			header.setField1("studentId");
 			header.setField2("studentName");
 			header.setField3("studentAge");
 			list.add(header);
@@ -87,7 +87,7 @@ public class ShowListStudentActivity extends Activity{
 					bundle.putString("getField3", list.get(arg2).getField3().toString());
 					intent.putExtra("DATA", bundle);
 					dataClick=list.get(arg2);
-					startActivityForResult(intent, MainActivity.OPEN_AUTHOR_DIALOG);
+					startActivityForResult(intent, MainActivity.OPEN_STUDENT_DIALOG);
 				}
 			});
 			lv.setOnItemLongClickListener(new OnItemLongClickListener() {
@@ -106,7 +106,7 @@ public class ShowListStudentActivity extends Activity{
 						@Override
 						public void onClick(DialogInterface dialog, int which) {
 							// TODO Auto-generated method stub
-							int n=database.delete("tblAuthors", "id=?", new String[]{data.getField1().toString()});
+							int n=database.delete("tblStudents", "id=?", new String[]{data.getField1().toString()});
 							if(n>0)
 							{
 								Toast.makeText(ShowListStudentActivity.this, "Remove ok", Toast.LENGTH_LONG).show();
@@ -137,18 +137,18 @@ public class ShowListStudentActivity extends Activity{
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		// TODO Auto-generated method stub
 		super.onActivityResult(requestCode, resultCode, data);
-		if(resultCode==MainActivity.SEND_DATA_FROM_AUTHOR_ACTIVITY)
+		if(resultCode==MainActivity.SEND_DATA_FROM_STUDENT_ACTIVITY)
 		{
-			Bundle bundle=data.getBundleExtra("DATA_AUTHOR");
-			String f2=bundle.getString("firstname");
-			String f3=bundle.getString("lastname");
+			Bundle bundle=data.getBundleExtra("DATA_STUDENT");
+			String f2=bundle.getString("studentName");
+			String f3=bundle.getString("studentAge");
 			String f1=dataClick.getField1().toString();
 			ContentValues values=new ContentValues();
-			values.put("firstname", f2);
-			values.put("lastname", f3);
+			values.put("studentName", f2);
+			values.put("studentAge", f3);
 			if(database!=null)
 			{
-				int n=database.update("tblAuthors", values, "id=?", new String[]{f1});
+				int n=database.update("tblStudents", values, "id=?", new String[]{f1});
 				if(n>0)
 				{
 					Toast.makeText(ShowListStudentActivity.this, "update ok ok ok ", Toast.LENGTH_LONG).show();
