@@ -51,7 +51,10 @@ public class AuthenticatorActivity extends AccountAuthenticatorActivity {
         findViewById(R.id.screen_one_btnext).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                submit();
+             //   submit();
+                Intent signup = new Intent(getBaseContext(), SignUpActivity.class);
+                signup.putExtras(getIntent().getExtras());
+                startActivityForResult(signup, REQ_SIGNUP);
             }
         });
 
